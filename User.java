@@ -82,7 +82,7 @@
             }
         }   
         for (int i =indexName ; i < fCount-1; i ++){
-            this.follows[i] = this.follows[i+1];
+            this.follows[i] = this.follows[i-1];
         }
         this.follows[fCount - 1] = null;
         fCount--;
