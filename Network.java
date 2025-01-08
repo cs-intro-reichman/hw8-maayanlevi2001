@@ -60,7 +60,7 @@ public class Network {
     public boolean addFollowee(String name1, String name2) {
        if (name1 == null || name2 == null) return false;
        if (getUser(name1) == null || getUser(name2) == null) return false;
-       if (name1.equals(name2)) return true;
+       if (name1.equals(name2)) return false;
 
     return this.getUser(name1).addFollowee(name2);
 }
@@ -105,13 +105,25 @@ public class Network {
     /** Returns the number of times that the given name appears in the follows lists of all
      *  the users in this network. Note: A name can appear 0 or 1 times in each list. */
     private int followeeCount(String name) {
-        //// Replace the following statement with your code
-        return 0;
+        int counter=0;
+        for (int i = 0; i < this.userCount; i++){
+            if(this.users[i].getName().equals(name)){
+                continue;
+            }
+            if(this.users[i].follows(name)){
+                counter ++;
+            }
+        }
+        return counter;
     }
 
     // Returns a textual description of all the users in this network, and who they follow.
     public String toString() {
-       //// Replace the following statement with your code
-       return null;
+
+    String description = "Network:";
+    for (int i = 0; i < userCount; i++) {
+        description = description + "\n" + users[i].toString();
     }
-    }
+   return description;
+}
+}
