@@ -3,7 +3,7 @@
  public class User {
    
     public static void main(String[] args) {
-        
+
     }
 
 
@@ -49,22 +49,22 @@
     /** If this user follows the given name, returns true; otherwise returns false. idan.follows(roy) */
     public boolean follows(String name) {
         for (int i = 0; i < fCount; i++) {
-            if (this.follows[i] != null && this.follows[i].equals(name))
-            {
+              if(name.toLowerCase().equals(this.follows[i].toLowerCase())){
+            
                 return true;
-            }
+              }
         }
         return false;
     }
     /** Makes this user follow the given name. If successful, returns true. 
      *  If this user already follows the given name, or if the follows list is full, does nothing and returns false; */
     public boolean addFollowee(String name) {
-        if(this.follows(name) || this.fCount + 1 >= maxfCount)
+        if(this.follows(name) || this.fCount >= maxfCount)
         {
             return false;
         }
         
-        this.follows[fCount+1] = name;
+        this.follows[fCount] = name;
         fCount++;
         return true;
     }
