@@ -95,8 +95,9 @@
         int counter = 0;
             for(int i= 0 ; i <this.fCount ; i++)
             {
-             if (other.follows(this.follows[i]))
-             counter++;
+             if (other.follows(this.follows[i])){
+                counter++;
+             }
             }
             return counter;
 
